@@ -104,12 +104,14 @@ function trocaPrimeiroEUltimo(array) {
    array.push(array.splice(0,1)[0])
    array.unshift(array.splice(0,1)[0])
    return array
+   // Não consegui
 }
 
 // EXERCÍCIO 12
 function checaIgualdadeDesconsiderandoCase(string1, string2) {
   // implemente sua lógica aqui
 return string1 === string2
+//  não consegui
 }
 
 // EXERCÍCIO 13
