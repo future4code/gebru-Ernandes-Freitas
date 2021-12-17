@@ -1,0 +1,33 @@
+
+.nome-da-loja{
+    display: none;
+}
+
+.fundo-da-loja{
+    background-image: url(img/jr-modas.jpg);
+}
+
+.atalhos-para-navegar-na-loja{
+    text-align: center;
+    margin: 50px;
+}
+
+.imagens-produtos{
+    width: 120px;
+    height: 120px;
+}
+
+h2{
+    font-size: 25px;
+    color: goldenrod;
+    text-align: center;
+}
+
+table{
+    
+    font-size: 25px;
+    color: goldenrod;
+    border-style: inset;
+    background-color: rgb(14, 14, 37);
+    
+}

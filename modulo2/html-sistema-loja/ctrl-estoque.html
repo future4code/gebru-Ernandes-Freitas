@@ -5,24 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Controle de Estoque</title>
+    <link rel="stylesheet" href="ctrl-estoque.css">
 </head>
-<body>
-    <div>
-        <b><a href="index.html">Moda Masculina</a></b><br>
+<body class="fundo-da-loja">
+    <div class="nome-da-loja">
+        <b><a href="index.html">Jr modas</a></b><br>
     
     </div>
     
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
+    <div class="atalhos-para-navegar-na-loja">
+        <a href="index.html"><button type="submit">Página Inicial</button></a>
+        <a href="ctrl-estoque.html"><button type="submit"> Controle de Estoque</button></a>
+        <a href="add-produto.html"><button type="submit">Adicionar Produto</button></a>
+        <a href="funcionarios.html"> <button type="submit">Funcionários</button></a>
     </div>
     
     <h2>Controle de Estoque</h2>
 
     <table>
-        <tr>
+        <tr class="topo">
             <th>Foto</th>
             <th>Descrição</th>
             <th>Preço (R$)</th>
@@ -30,29 +31,28 @@
         </tr>
 
         <tr>
-            <td><img src="img/calca.jpg" alt="Calça Masculina" /></td>
-            <td> <b>Calça </b></td>
-            <td> <u>50</u> </td>
-            <td> <u>20</u> </td>
+                <td><img class="imagens-produtos" src="img/calca.jpg" alt=" calça malculina"><b> Calça </b></td>
+                <td> <u>50</u> </td>
+                 <td> <u>20</u> </td>
         </tr>
          
 
         <tr>
-            <td><img src="img/camiseta.jpg" alt="Camiseta Masculina"/></td>
+            <td><img class="imagens-produtos" src="img/camiseta.jpg" alt="Camiseta Masculina"/></td>
             <td> <b>Camiseta Masculina </b></td>
             <td> <u>25 </u></td>
             <td> <u>30</u> </td>
         </tr>
 
         <tr>
-            <td><img src="img/bermuda.jpg" alt="Bermuda Masculina"/></td>
+            <td><img class="imagens-produtos" src="img/bermuda.jpg" alt="Bermuda Masculina"/></td>
             <td> <b>Bermuda Masculina</b> </td>
             <td> <u>75</u> </td>
             <td> <u>23</u> </td>
         </tr>
 
         <tr>
-            <td><img src="img/sapato.jpg" alt="Sapato Masculino"/></td>
+            <td><img class="imagens-produtos" src="img/sapato.jpg" alt="Sapato Masculino"/></td>
             <td><b>Sapato Masculino</b> </td>
             <td> <u>150 </u></td>
             <td> <u>100</u> </td>
@@ -60,7 +60,7 @@
         
         <!-- Crie mais uma linha desta tabela abaixo \/ -->
          <tr>
-             <td><img src="img/sandalia.jpg" alt="Sandalia Masculina" ></td>
+             <td><img class="imagens-produtos" src="img/sandalia.jpg" alt="Sandalia Masculina" ></td>
              <td><b>Sandalia Masculina</b></td>
              <td><u>15</u></td>
              <td><u>30</u></td>
