@@ -1,0 +1,113 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    
+    
+}
+
+.container{
+    flex-wrap: wrap;
+    display: grid;
+    
+}
+.container-header{
+    background-color: brown;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.container-header > div > h3{
+    font-size: 30px;
+    margin-right: 200px;
+}
+.container-busca{
+    display: flex;
+    margin-left: 350px;
+    
+}
+.icone-buscar{
+    width: 24px;
+    height: 24px;
+}
+
+.icone{
+    width: 50px;
+    height: 50px;
+    margin-right: 80px;
+}
+
+
+/* <!-- ----------------- --> */
+
+.div-main{
+    height:100vh ;
+    display: flex;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-main {
+    height: auto;
+    display:flex;
+    
+}
+.container-videos{
+    background-color: blanchedalmond;
+    border: 3px solid red;
+    display: grid;
+    grid-template-columns:repeat(4,1fr);
+    gap: 5px;
+    justify-items: center;
+    align-items: center;
+
+
+}
+.container-videos > div > video {
+    width: 300px;
+    height: 300px;
+    border: 2px solid violet;
+    
+}
+.container-videos > div > a >video{
+    width: 300px;
+    height: 300px;
+    border: 2px solid violet;
+}
+
+.container-videos div {
+    border: 2px solid white;
+    
+    
+}
+.container-videos div h1{
+    font-size: 20px;
+    text-align: center;
+    border-bottom: solid black;
+}
+
+.div-footer{
+
+    background-color: brown;
+     height: 130px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.container-footer{
+   
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-footer div h3 {
+    font-size: 30px;
+    
+}

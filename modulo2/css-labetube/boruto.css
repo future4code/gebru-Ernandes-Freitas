@@ -1,0 +1,65 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    max-width: 100%;
+}
+.container{
+    
+  display: grid;
+}
+.div-boruto-main{
+    background-color: black;
+    display: grid;
+    justify-content: center;  
+}
+.container-main-boruto {
+    width: 120vh;
+    height: 78vh;
+    background-color:white;
+    border: 2px solid black;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+.container-main-boruto div{
+    
+    
+    display: grid;
+    justify-items: center;
+    align-content: center;
+}
+
+.container-main-boruto div video{
+
+    width: 650px;
+    height: 650px;
+    margin-top: 0 auto
+}
+.container-main-boruto div h1{
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
