@@ -1,18 +1,21 @@
-body{
+*{
     margin: 0px;
     padding: 0px;
-    
-    
+    text-decoration: none;
 }
 
 .container{
-    flex-wrap: wrap;
+    max-width: 100%;
+    max-height: 100%;
     display: grid;
+    justify-items: center;
     
+   
 }
 .container-header{
     background-color: brown;
     height: 10vh;
+    width: 100vw;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -21,93 +24,72 @@ body{
 
 .container-header > div > h3{
     font-size: 30px;
-    margin-right: 200px;
+    width: 50vw;
 }
 .container-busca{
+    max-width: 100%;
+    max-height: 100%;
     display: flex;
-    margin-left: 350px;
-    
+    width: 15vw;
 }
 .icone-buscar{
-    width: 24px;
-    height: 24px;
+    
+    width: 22px;
+    height: 22px;
 }
 
 .icone{
     width: 50px;
     height: 50px;
-    margin-right: 80px;
+   
 }
 
 
 /* <!-- ----------------- --> */
 
-.div-main{
-    height:100vh ;
-    display: flex;
-    background-color: black;
-    align-items: center;
-    justify-content: center;
-}
+
+
 
 .container-main {
-    height: auto;
-    display:flex;
+    max-width: 100%;
+    max-height: 100%;
     
-}
-.container-videos{
-    background-color: blanchedalmond;
-    border: 3px solid red;
+    height: 70vh;
+    width: 80vw;
     display: grid;
-    grid-template-columns:repeat(4,1fr);
-    gap: 5px;
+    grid-template-columns: repeat(4,1fr);
     justify-items: center;
     align-items: center;
+    margin-top: 2%;
 
-
-}
-.container-videos > div > video {
-    width: 300px;
-    height: 300px;
-    border: 2px solid violet;
     
 }
-.container-videos > div > a >video{
-    width: 300px;
-    height: 300px;
-    border: 2px solid violet;
-}
 
-.container-videos div {
-    border: 2px solid white;
+.container-videos{
     
-    
-}
-.container-videos div h1{
-    font-size: 20px;
-    text-align: center;
-    border-bottom: solid black;
-}
-
-.div-footer{
-
-    background-color: brown;
-     height: 130px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-}
-.container-footer{
    
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+    
+}
+.borutoh1{
+    text-align: center;
+}
+.videos{
+    width: 28vh;
+    height: 15vw;
+}
+
+.container-footer{
     
     display: flex;
     align-items: center;
     justify-content: center;
-
+    background-color: brown;
+    width: 100vw;
+    height: 12vh;
+    margin-top: 2%;
 }
 
-.container-footer div h3 {
-    font-size: 30px;
-    
-}
