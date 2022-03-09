@@ -1,25 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import axios from "axios";
-import UserDetail from "./UserDetail";
 
-const DeleteButton = styled.span`
-  color: red;
-  cursor: pointer;
-`;
+const DivStilo = styled.div`
+ display: flex ;
+ justify-content:space-around;
+  width: 500px ;
+  padding: 20px;
+  border:solid 1px ;
+  margin-top: 10px ;
 
-const axiosConfig = {
-  headers: {
-    Authorization: "severo"
-  }
-};
+`
+
+
 
 class Users extends React.Component {
   state = {
-    usersList: [],
-    currentPage: "usersList",
-    userId: "",
-    name: ""
+    usersList:[]
   };
 
   componentDidMount() {
@@ -27,98 +24,69 @@ class Users extends React.Component {
   }
 
   fetchUsersList = () => {
+
+    const headers1 = {
+      headers: {
+        Authorization: "ernandes-freitas-gebru"
+      }
+    };
+
     axios
       .get(
         "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
-        axiosConfig
+        headers1 
       )
-      .then(response => {
-        this.setState({ usersList: response.data });
-      });
-  };
+      .then((response) => 
+        this.setState({usersList:response.data}))
+      
+      .catch((error) => console.log(error.response.data))
 
-  handleUserDeletion = userId => {
-    if (window.confirm("Tem certeza que deseja apagar o usuário?")) {
+  }
+  
+  
+  userDeletion = userId => {
+    
       axios
         .delete(
           `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${userId}`,
-          axiosConfig
+          {
+            headers: {
+              Authorization: "ernandes-freitas-gebru"
+            }
+          }
+          
         )
-        .then(() => {
-          alert("Usuário apagado com sucesso!");
+        .then(response => {
+          alert("Você tem certeza que deseja apagar o usuário ?");
           this.fetchUsersList();
         })
-        .catch(e => {
-          alert("ERRO AO APAGAR USUARIO");
+        .catch(error => {
+          alert("ERRO AO APAGAR USUARIO")
+          console.log(error.response.data)
         });
+        
     }
-  };
-
-  changePage = userId => {
-    if (this.state.currentPage === "usersList") {
-      this.setState({ currentPage: "userDetail", userId: userId });
-    } else {
-      this.setState({ currentPage: "usersList", userId: "" });
-    }
-  };
-
-  handleNameChange = event => {
-    const newNameValue = event.target.value;
-
-    this.setState({ name: newNameValue });
-  };
-
-  handleSearchUser = () => {
-    axios
-      .get(
-        `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/search?name=${this.state.name
-        }&email=`,
-        axiosConfig
-      )
-      .then(response => {
-        this.setState({ usersList: response.data });
-      })
-      .catch(error => {
-        alert("Erro ao criar o usuário");
-        console.log(error);
-      });
-  };
+  
 
   render() {
+    const listUsers = this.state.usersList.map((users)=>{
+
+      return(
+
+        <DivStilo key={users.id}>
+          <span>{users.name}</span>
+         
+          <button onClick={()=>this.userDeletion(users.id)}>delete</button>
+        </DivStilo>
+      )
+    });
+
     return (
       <div>
-        {this.state.currentPage === "usersList" ? (
-          <div>
-            <ul>
-              {this.state.usersList.length === 0 && <div>Carregando...</div>}
-              {this.state.usersList.map(user => {
-                return (
-                  <li>
-                    <span onClick={() => this.changePage(user.id)}>
-                      {user.name}
-                    </span>
-                    <DeleteButton
-                      onClick={() => this.handleUserDeletion(user.id)}
-                    >
-                      X
-                    </DeleteButton>
-                  </li>
-                );
-              })}
-            </ul>
-            <hr />
-            <h4>Procurar usuário</h4>
-            <input
-              placeholder="Nome exato para busca"
-              type="text"
-              value={this.state.name}
-              onChange={this.handleNameChange}
-            />
-            <button onClick={this.handleSearchUser}>Salvar edição</button>
-          </div>
-        ) : (
-          <UserDetail userId={this.state.userId} changePage={this.changePage} />
-        )}
+          <h3>Lista de usuários</h3>
+          {listUsers}
+          <button onClick={this.props.rendereSingUpPage}>Voltar</button>
+
       </div>
     );
   }

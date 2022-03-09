@@ -1,68 +1,80 @@
 import React from "react";
 import axios from "axios";
 
+
 class SignUpPage extends React.Component {
   state = {
-    name: "",
-    email: ""
+    nameInput:"",
+    emailInput:""
   };
 
-  handleNameChange = event => {
-    const newNameValue = event.target.value;
-
-    this.setState({ name: newNameValue });
+   nameInputO = (event) => {
+    
+    this.setState({nameInput:event.target.value})
+    
   };
 
-  handleEmailChange = event => {
-    const newEmailValue = event.target.value;
 
-    this.setState({ email: newEmailValue });
+  emailInputO = (event) => {
+    
+    this.setState({emailInput:event.target.value});
   };
 
-  handleCreateUser = () => {
-    const axiosConfig = {
+  createUser = () => {
+    const headers = {
       headers: {
-        Authorization: "severo"
+        Authorization: "ernandes-freitas-gebru"
       }
     };
 
     const body = {
-      name: this.state.name,
-      email: this.state.email
+      name: this.state.nameInput,
+      email: this.state.emailInput
     };
+
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
 
     axios
       .post(
-        "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users",
+        url,
         body,
-        axiosConfig
+        headers
       )
-      .then(() => {
-        alert(`Usuário ${this.state.name} criado com sucesso!`);
-        this.setState({ name: "", email: "" });
-      })
+      .then(response => 
+        alert (`Usuário ${this.state.nameInput} criado com sucesso!`))
+        this.setState({ nameInput: "", emailInput: "" })
+      
       .catch(error => {
         alert("Erro ao criar o usuário");
-        console.log(error);
-      });
+        console.log(error.response.data.message);
+      })
   };
 
   render() {
     return (
       <div>
-        <input
-          placeholder="Nome"
-          type="text"
-          value={this.state.name}
-          onChange={this.handleNameChange}
-        />
-        <input
-          placeholder="E-mail"
-          type="email"
-          value={this.state.email}
-          onChange={this.handleEmailChange}
-        />
-        <button onClick={this.handleCreateUser}>Criar Usuário</button>
+
+        <h3>Cadastre-se</h3>
+
+          <div>
+          <input
+            placeholder="Nome"
+            type="text"
+            value={this.state.nameInput}
+            onChange={this.nameInputO}
+          />
+          <input
+            placeholder="E-mail"
+            type="email"
+            value={this.state.emailInput}
+            onChange={this.emailInputO}
+          />
+          <button onClick={this.createUser}>Cadastar</button>
+          </div>
+            <br/>
+            <button onClick={this.props.rendereUsers}>
+              Lista de Usuários
+            </button>
       </div>
     );
   }
