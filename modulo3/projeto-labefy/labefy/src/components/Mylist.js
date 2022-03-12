@@ -6,7 +6,7 @@ import React from "react";
 export default class Mylist extends React.Component {
     state ={
         playListCriada:[],
-        id:''
+        
     };
 
     componentDidMount() {
@@ -62,11 +62,12 @@ export default class Mylist extends React.Component {
 
             return (
 
-                <div key={list.id}>
+                <div key={list.id}
+                
+                    onClick = {() => this.props.idPageDetalheMusic(list.id)}
+                >
                     <span>{list.name}</span>
                    
-                    
-
                     <button onClick={()=> this.deletePlayList(list.id)} >Excluir</button>
                    
                     <button onClick={this.props.pageAddMusic}>Adicionar Musica</button>

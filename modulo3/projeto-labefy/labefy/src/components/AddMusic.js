@@ -3,14 +3,16 @@ import axios from "axios";
 
 
 
+
 export default class AddMusic extends React.Component {
 
     state = {
-        nameMusicInput: " ",
-        artistaBandaInput: " ",
-        urlMusicInput: " "
+        nameMusicInput: "",
+        artistaBandaInput: "",
+        urlMusicInput: ""
     }
 
+    
     onNameMusicInput = (evente) => {
         this.setState({nameMusicInput: evente.target.value})
     }
@@ -23,9 +25,9 @@ export default class AddMusic extends React.Component {
 
     addMusicPlaylist = () =>{
 
-        const playlistId = '027f1eaf-3d07-46cf-aab3-7064d5935d80'
+        
 
-        const url= `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${playlistId}/tracks`
+        const urls= `https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/${this.props.url}/tracks`
        
         const headers = {
             headers : {
@@ -40,9 +42,10 @@ export default class AddMusic extends React.Component {
         }
 
             axios
-            .post(url,headers,body )
+            .post(urls,headers,body)
             .then ((response) => { 
                 return alert (`Adcionado com sucesso!`)
+                response.data
             })
             
             .catch ((error) => {
