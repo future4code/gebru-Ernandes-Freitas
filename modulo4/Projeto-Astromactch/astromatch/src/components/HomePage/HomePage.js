@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import Match from "../Match/Match"
-import {Containe,ImgPerfil} from "./StyledHomePage"
+import {Containe,ImgPerfil,IconsImg,ButoonLike,ButoonX,DivButton,Bio,HeaderDiv,ButoonHeader, Pheader,Pheader2, DivP ,DivPerfil,ButoonNovosPerfis} from "./StyledHomePage"
+
 
 
 
@@ -78,27 +78,51 @@ export default function HomePage (props) {
         })
     };
    
+    const putClearMatchScreen1 = () => {
+
+        const url = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/ernandes-freitas-gebru/clear`
+
+        const body = {
+            id : profiles.id
+        }
+
+        axios
+        .put(url,body)
+        .then((response)=>{
+            console.log("Lista limpada com sucesso!")
+            getProfileScreen ()
+        })
+        .catch((error)=>{
+            console.log(error.response.data.message)
+        })
+    };
+
 
     return (
 
         <Containe key={profiles.id}>
 
-            <button onClick={props.matchPage}>Match List</button>
+            <HeaderDiv>
+               <DivP><Pheader>astro</Pheader><Pheader2>match</Pheader2></DivP> 
+            <ButoonHeader  onClick={props.matchPage}><img src={props.iconsVerificado}/></ButoonHeader>
+            </HeaderDiv>
 
             <ImgPerfil src={profiles.photo}/>
-            {profiles.name ? profiles.name : 'Carregando...'},
-            {profiles.age }
-            <br/>
-            {profiles.bio }
-
-
-            <div> 
-                <button onClick={()=>{postScreenChoosePerson1()}}><img  src={""} alt =" imagem do X"/></button>
-                <button onClick={()=>{postScreenChoosePerson()}}> <img src={""} alt =" imagem do coração" /> </button>
-            </div>
+              <DivPerfil>
+                        
+                <p>{profiles.name ? profiles.name : <IconsImg src={props.coracao} alt =" imagem do coração" />},{profiles.age }</p> 
+                <br/>
+                <Bio>{profiles.bio}</Bio>     
+             </DivPerfil>  
+              
+                
+            <DivButton> 
+                <ButoonX onClick={()=>{postScreenChoosePerson1()}}><IconsImg  src={props.imageX} alt =" imagem do X"/></ButoonX>
+                <ButoonLike onClick={()=>{postScreenChoosePerson()}}> <IconsImg src={props.coracao} alt =" imagem do coração" /> </ButoonLike>
+            </DivButton>
 
             
-
+            <ButoonNovosPerfis onClick={()=>{putClearMatchScreen1()}}>Novos Perfis</ButoonNovosPerfis>
         </Containe>
     )
 
