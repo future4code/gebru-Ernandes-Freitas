@@ -1,9 +1,14 @@
 
+import HomePage from "./Pages/HomePage/HomePage"
+import ListTripsPage from "./Pages/ListTripsPage/ListTripsPage";
 
-function App() {
+
+
+function App () {
   return (
     <div>
-        <h1>labex</h1>
+        {/* <HomePage/> */}
+        <ListTripsPage/>
     </div>
   );
 }
