@@ -1,14 +1,13 @@
 
-import HomePage from "./Pages/HomePage/HomePage"
-import ListTripsPage from "./Pages/ListTripsPage/ListTripsPage";
+import React from "react";
+import {Router} from "./routes/Router"
 
 
 
 function App () {
   return (
     <div>
-        {/* <HomePage/> */}
-        <ListTripsPage/>
+        <Router/>
     </div>
   );
 }

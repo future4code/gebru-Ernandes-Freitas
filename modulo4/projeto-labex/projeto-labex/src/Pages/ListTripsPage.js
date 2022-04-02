@@ -2,10 +2,14 @@ import React from 'react'
 import  {useEffect} from 'react'
 import {useState} from 'react'
 import axios from 'axios'
+import {backPage} from "../routes/coordinator"
+import {useNavigate} from "react-router-dom"
 
 
 
 function ListTripsPage () {
+    
+        const navigate = useNavigate()
 
         const [getTripsListAllViagens,setGetTripsListAllViagens] = useState([])
     
@@ -13,8 +17,7 @@ function ListTripsPage () {
     useEffect (()=>{
         
         getTripsAllViagens ()
-        allListViagens ()
-
+        
     },[])
 
     const getTripsAllViagens = () => {
@@ -25,6 +28,7 @@ function ListTripsPage () {
         .get (url)
         .then ((response)=>{
             setGetTripsListAllViagens(response.data.trips)
+            
 
         })
         .catch((error)=>{
@@ -33,9 +37,7 @@ function ListTripsPage () {
         
     }; 
     
-    const allListViagens = ()=>{
-        
-         getTripsListAllViagens.map((viagens)=>{
+    const allListViagens = getTripsListAllViagens.map((viagens)=>{
 
             return (
                 <div key={viagens.id}>
@@ -49,15 +51,17 @@ function ListTripsPage () {
 
            
 
-        })
+        });
 
-    }
+    
     
 
     return (
-
+        
       <div>
-            Olá
+         { allListViagens}
+         Olaaaaaaaaaaaaaaaaaaaaaaaaaa!!!
+         <button onClick={()=> backPage(navigate)}>Voltar</button>
       </div>
     );
   };
