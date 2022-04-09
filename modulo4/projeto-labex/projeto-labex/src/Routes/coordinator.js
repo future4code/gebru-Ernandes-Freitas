@@ -20,3 +20,10 @@ export const backPage = (navigate) => {
 export const homePageViagens = (navigate)=>{
     navigate("/")
 };
+
+export const TripDetailsPageViagens = (navigate) =>{
+    navigate(`/TripDetailsPage`)
+}
+export const LoginPageViagens = (navigate)=>{
+    navigate(`/LoginPage`)
+}

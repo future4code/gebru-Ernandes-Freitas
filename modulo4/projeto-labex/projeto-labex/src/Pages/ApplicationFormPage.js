@@ -1,7 +1,11 @@
+
 function ApplicationFormPage   () {
+
     return (
       <div>
-          ApplicationFormPage
+        
+          Inscreva-se para uma viagem
+
       </div>
     );
   }

@@ -5,59 +5,73 @@ import {backPage} from "../routes/coordinator"
 
 
 
+
 function CreateTripPage () {
+
   const navigate = useNavigate()
   
-  const {inputName, setInputName} = useState (' ')
-  const {inputOptionPlanet, setInputOptionPlanet} = useState ('Escolha o planeta')
-  const {inputDate, setInputDate} =useState (' ')
-  const {inputDescricao , setInputDescricao} = useState (' ')
-  const {inputDuracao, setInputDuracao} = useState(' ')
+  const [inputName, setInputName] = useState('oi')
+  const [inputOptionPlanet, setInputOptionPlanet] = useState('')
+  const [inputDate, setInputDate] =useState('')
+  const [inputDescricao , setInputDescricao] = useState('')
+  const [inputDuracao, setInputDuracao] = useState('')
 
-  const  nameSave = (event) => {
-    setInputName({inputName: event.target.value })
+  
+  const nameSave = (event) => {
+    setInputName(event.target.value)
   };
+  console.log(inputName)
 
   const planetGuard = (event) => {
-    setInputOptionPlanet ({inputOptionPlanet: event.target.value})
+    setInputOptionPlanet (event.target.value)
   };
 
   const dateGuard = (event) => {
-    setInputDate({inputDate: event.target.value })
+    setInputDate(event.target.value)
   };
 
   const descriptionGuard = (event) => {
-    setInputDescricao ({inputDescricao: event.target.value})
+    setInputDescricao (event.target.value)
   };
   const durationDays = (event) => {
-    setInputDuracao({inputDuracao: event.target.value})
+    setInputDuracao(event.target.value)
   };
+
+  console.log(localStorage.getItem("token"))
 
   const createTrip = () => {
     const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernandes-freitas-gebru/trips`
 
     const body = {
-      name : inputName , 
-      planet : inputOptionPlanet,
-      date : Number(inputDate),
-      description: inputDescricao ,
-      durationInDays: Number(inputDuracao)
+      name:inputName , 
+      planet:inputOptionPlanet,
+      date:inputDate,
+      description:inputDescricao ,
+      durationInDays:inputDuracao
     }
+    console.log(body)
+    const headers = {
 
-    axios(url,body)
+      headers: {
+        auth:localStorage.getItem("token")
+    }}
+    
+    axios
+    .post(url,body,headers)
     .then((response)=> {
+
       alert ("Viagem criada com sucesso ")
-      
+
     })
 
     .catch ((error)=>{
-      alert ("error !")
+      console.log(error.response.data.message)
     })
 
   };
 
-
-    return (
+    
+      return (
       <div>
           <input
           placeholder={"Nome"}
@@ -67,7 +81,7 @@ function CreateTripPage () {
          
          <select 
          
-         value ={inputOptionPlanet}
+         value = {inputOptionPlanet}
          onChange={planetGuard}>
            <option value={" "} disabled >Escolha um planeta </option>
            <option>Mercúrio</option>
@@ -97,10 +111,8 @@ function CreateTripPage () {
           onChange={durationDays}
           min = {50}
           />
-
-
           <button onClick={()=> backPage(navigate)}>Voltar</button>
-          <button onClick={()=>{createTrip ()}}>Criar</button>
+          <button onClick={()=>createTrip ()}>Criar</button>
       </div>
 
 

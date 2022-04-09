@@ -4,7 +4,7 @@ import {useState} from 'react'
 import axios from 'axios'
 import {backPage} from "../routes/coordinator"
 import {useNavigate} from "react-router-dom"
-
+import { Container,CardsDiv,ButtonDiv,ButtonsV, ListP } from "../style/StyledListTripsPage"
 
 
 function ListTripsPage () {
@@ -24,6 +24,7 @@ function ListTripsPage () {
 
         const url = `https://us-central1-labenu-apis.cloudfunctions.net/labeX/ernandes-freitas-gebru/trips`
 
+      
         axios
         .get (url)
         .then ((response)=>{
@@ -40,29 +41,31 @@ function ListTripsPage () {
     const allListViagens = getTripsListAllViagens.map((viagens)=>{
 
             return (
-                <div key={viagens.id}>
-                        <p>{viagens.name}</p>
-                        <p> {viagens.description} </p>
-                        <p> {viagens.planet} </p>
-                        <p> {viagens.durationInDays} </p>
-                        <p> {viagens.date}</p>
-                </div>
+                <CardsDiv key={viagens.id}>
+                        <ListP><strong>Nome:</strong> {viagens.name}</ListP>
+                        <ListP> <strong>Descrição:</strong> {viagens.description} </ListP>
+                        <ListP> <strong>Planeta:</strong> {viagens.planet} </ListP>
+                        <ListP> <strong>Duração:</strong> {viagens.durationInDays} </ListP>
+                        <ListP> <strong>Data:</strong> {viagens.date}</ListP>
+                </CardsDiv>
             )
-
-           
 
         });
 
     
-    
 
     return (
         
-      <div>
-         { allListViagens}
-         Olaaaaaaaaaaaaaaaaaaaaaaaaaa!!!
-         <button onClick={()=> backPage(navigate)}>Voltar</button>
-      </div>
+      <Container>
+          <ButtonDiv>
+            <ButtonsV onClick={()=> backPage(navigate)}>Voltar</ButtonsV>
+            <ButtonsV onClick={()=> backPage(navigate)}>Voltar2</ButtonsV>
+          </ButtonDiv>
+            {allListViagens}
+                 
+                
+           
+      </Container>
     );
   };
   

@@ -1,19 +1,29 @@
 
 import React from "react";
 import {useNavigate} from "react-router-dom"
-import {listTripsPageViagens,adminHomePageViagens} from "../routes/coordinator"
-
+import {listTripsPageViagens,LoginPageViagens,} from "../routes/coordinator"
+import {Container,Titulo,DivButton,Buttons,DivImg,Icones,HoverIcons} from "../style/StyledHome"
+import iconsFacebook from "../img/iconsFacebook.png"
+import iconsInstagram from "../img/iconsInstagram.png";
 
 function HomePage () {
 
   const navigate = useNavigate()
   return (
-    <div>
-        <h1>labex</h1>
-        <button onClick={()=>listTripsPageViagens(navigate)} > ver viagens </button>
-        <button onClick={()=>adminHomePageViagens(navigate)}> login </button>
-        
-    </div>
+    <Container>
+        <Titulo>Labex</Titulo>
+        <DivButton> 
+          <Buttons onClick={()=>listTripsPageViagens(navigate)} >viagens </Buttons>
+          <Buttons onClick={()=>LoginPageViagens(navigate)}> login </Buttons>
+        </DivButton>
+          <DivImg>
+            <HoverIcons> <Icones src={iconsFacebook} alt="facebook" /> </HoverIcons>
+            <HoverIcons> <Icones src= {iconsInstagram} alt="facebook" /> </HoverIcons>
+            
+            
+          </DivImg>
+
+    </Container>
   );
 };
 
