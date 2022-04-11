@@ -63,18 +63,33 @@ export const ListPViagem = styled.p`
     color: rgb(208, 208, 225) ;
      margin-left: 10px;
      padding: 20px;
+     display: flex;
+     justify-content: space-between;
     
 `
 
 export const Buttonheader = styled.div`
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 20px;
     padding: 20px;
     width: 500px;
     height: 30px; 
+    
+`
+
+export const Buttonheader2 = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 20px;
+    width: 500px;
+    height: 20px; 
+    
 `
 
 export const ButtonsVoltarECriar = styled.button`
@@ -101,8 +116,12 @@ export const ButtonsVoltarECriar = styled.button`
 
 export const TituloViagens = styled.h1`
     color: rgb(132, 57, 163);
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 700; 
-    
+    margin-top: 4px;
 
+`
+export const ButonX =  styled.button`
+    color:  red;
+    
 `

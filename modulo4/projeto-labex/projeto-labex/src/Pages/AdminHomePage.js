@@ -1,10 +1,10 @@
 import {useNavigate} from "react-router-dom"
-import {backPage,createTripPageViagens,TripDetailsPageViagens} from "../routes/coordinator"
+import {backPage,createTripPageViagens,TripDetailsPageViagens,LoginPageViagens,homePageViagens} from "../routes/coordinator"
 import {useProtectedPage} from "../hooks/useProtectedPage"
 import  {useEffect} from 'react'
 import {useState} from 'react'
 import axios from 'axios'
-import {Container,CardsViagem,ListPViagem,Buttonheader,ButtonsVoltarECriar,TituloViagens, } from "../style/StyledAdminHomePage"
+import {Container,CardsViagem,ListPViagem,Buttonheader,ButtonsVoltarECriar,TituloViagens,Buttonheader2, ButonX } from "../style/StyledAdminHomePage"
 
 
 function AdminHomePage () {
@@ -35,22 +35,37 @@ function AdminHomePage () {
   const allListViagens = allViagens.map((viagens)=>{
           return (
               <CardsViagem   key={viagens.id}>
-                      <ListPViagem><strong>{viagens.name}</strong> </ListPViagem>     
+                      <ListPViagem><strong>{viagens.name}</strong> 
+                       <ButonX>X</ButonX>   
+                      </ListPViagem>  
+                      
               </CardsViagem>
           )
       });
 
+      const logout = ()=> {
 
+        if ( localStorage.removeItem("token") === "") {
+          return  LoginPageViagens(navigate)
+        }
+      }
+         
 
     return (
       <Container>
          <Buttonheader>  
             
             <ButtonsVoltarECriar onClick={()=> backPage(navigate)}>Voltar</ButtonsVoltarECriar>
-            <TituloViagens>Painel Administrativo</TituloViagens>
-            <ButtonsVoltarECriar  onClick={()=> createTripPageViagens(navigate)}>Criar Viagem </ButtonsVoltarECriar>
-
+            <ButtonsVoltarECriar onClick={()=> homePageViagens(navigate)}>Logout</ButtonsVoltarECriar>
+            
           </Buttonheader>  
+          <TituloViagens>Painel Administrativo</TituloViagens>
+          
+           <Buttonheader2 >
+               <ButtonsVoltarECriar  onClick={()=> createTripPageViagens(navigate)}>Criar Viagem </ButtonsVoltarECriar>
+            </Buttonheader2> 
+            
+          
          
              {allListViagens}
             {/* onClick={()=> TripDetailsPageViagens(navigate)} */}

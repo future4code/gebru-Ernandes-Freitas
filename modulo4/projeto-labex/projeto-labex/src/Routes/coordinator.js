@@ -27,3 +27,7 @@ export const TripDetailsPageViagens = (navigate) =>{
 export const LoginPageViagens = (navigate)=>{
     navigate(`/LoginPage`)
 }
+
+export const applicationFormPage  = (navigate)=>{
+    navigate(`/ApplicationFormPage `)
+}

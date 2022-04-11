@@ -8,8 +8,8 @@ import {Container,Titulo,Inputs,DivInputs,ButtonEntrar} from "../style/StyledLog
 
 function LoginPage () {
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] =useState("");
+  const [email, setEmail] = useState("astrodev@gmail.com.br");
+  const [password, setPassword] =useState("123456");
   const navigate = useNavigate();
   
   const onEmail = (event) => {
@@ -63,6 +63,9 @@ function LoginPage () {
 
           <ButtonEntrar onClick={loginSubmit}>entrar</ButtonEntrar>
 
+                      
+          
+            
       </Container>
     );
   }

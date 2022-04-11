@@ -2,7 +2,7 @@ import React from 'react'
 import  {useEffect} from 'react'
 import {useState} from 'react'
 import axios from 'axios'
-import {backPage} from "../routes/coordinator"
+import {backPage,applicationFormPage } from "../routes/coordinator"
 import {useNavigate} from "react-router-dom"
 import { Container,CardsDiv,ButtonDiv,ButtonsV, ListP } from "../style/StyledListTripsPage"
 
@@ -59,7 +59,7 @@ function ListTripsPage () {
       <Container>
           <ButtonDiv>
             <ButtonsV onClick={()=> backPage(navigate)}>Voltar</ButtonsV>
-            <ButtonsV onClick={()=> backPage(navigate)}>Voltar2</ButtonsV>
+            <ButtonsV onClick={()=> applicationFormPage (navigate)}>inscreva-se</ButtonsV>
           </ButtonDiv>
             {allListViagens}
                  
