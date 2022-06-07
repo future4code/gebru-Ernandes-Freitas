@@ -2,7 +2,7 @@ import express, {  request, response } from "express";
 import cors from"cors"
 import { Request , Response } from "express";
 import { afazeres} from "./ex3"
-import {listAfazers} from "./ex4"
+
 
 const app = express();
 
