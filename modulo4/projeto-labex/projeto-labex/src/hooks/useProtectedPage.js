@@ -1,4 +1,4 @@
-import {LoginPageViagens} from "../routes/coordinator"
+import {LoginPageViagens} from "../Routes/coordinator"
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

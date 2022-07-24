@@ -1,5 +1,5 @@
 import {useNavigate} from "react-router-dom"
-import {backPage,createTripPageViagens,TripDetailsPageViagens,LoginPageViagens,homePageViagens} from "../routes/coordinator"
+import {backPage,createTripPageViagens,TripDetailsPageViagens,LoginPageViagens,homePageViagens} from "../Routes/coordinator"
 import {useProtectedPage} from "../hooks/useProtectedPage"
 import  {useEffect} from 'react'
 import {useState} from 'react'
@@ -18,6 +18,7 @@ function AdminHomePage () {
             allViagem ()
               
           },[]);
+          
 
       const allViagem = () => {
 

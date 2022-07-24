@@ -1,6 +1,6 @@
 import axios from "axios";
 import {useState} from "react";
-import {adminHomePageViagens} from "../routes/coordinator";
+import {adminHomePageViagens} from "../Routes/coordinator";
 import {useNavigate} from "react-router-dom";
 import {Container,Titulo,Inputs,DivInputs,ButtonEntrar} from "../style/StyledLogin"
 
