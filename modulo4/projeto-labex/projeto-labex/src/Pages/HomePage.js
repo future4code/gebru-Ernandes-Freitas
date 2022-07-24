@@ -1,7 +1,7 @@
 
 import React from "react";
 import {useNavigate} from "react-router-dom"
-import {listTripsPageViagens,LoginPageViagens,} from "../routes/coordinator"
+import {listTripsPageViagens,LoginPageViagens,} from "../Routes/coordinator"
 import {Container,Titulo,DivButton,Buttons,DivImg,Icones,HoverIcons} from "../style/StyledHome"
 import iconsFacebook from "../img/iconsFacebook.png"
 import iconsInstagram from "../img/iconsInstagram.png";
