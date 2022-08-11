@@ -2,7 +2,7 @@ import React from 'react'
 import  {useEffect} from 'react'
 import {useState} from 'react'
 import axios from 'axios'
-import {backPage,applicationFormPage } from "../routes/coordinator"
+import {backPage,applicationFormPage } from "../Routes/coordinator"
 import {useNavigate} from "react-router-dom"
 import { Container,CardsDiv,ButtonDiv,ButtonsV, ListP } from "../style/StyledListTripsPage"
 

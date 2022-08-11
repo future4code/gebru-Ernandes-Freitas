@@ -1,4 +1,4 @@
-import {backPage,homePageViagens} from "../routes/coordinator"
+import {backPage,homePageViagens} from "../Routes/coordinator"
 import {useNavigate} from "react-router-dom"
 import {useState, useEffect} from "react"
 import {useForm} from "../hooks/useForm"
